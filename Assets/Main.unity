@@ -353,48 +353,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 18222962}
   smoothing: 0.2
---- !u!1001 &1246502707
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4258058818350484, guid: 255c0282a221c5d4a974b9dbd68e2622, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.97651994
-      objectReference: {fileID: 0}
-    - target: {fileID: 4258058818350484, guid: 255c0282a221c5d4a974b9dbd68e2622, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.4308922
-      objectReference: {fileID: 0}
-    - target: {fileID: 4258058818350484, guid: 255c0282a221c5d4a974b9dbd68e2622, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.8095703
-      objectReference: {fileID: 0}
-    - target: {fileID: 4258058818350484, guid: 255c0282a221c5d4a974b9dbd68e2622, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4258058818350484, guid: 255c0282a221c5d4a974b9dbd68e2622, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4258058818350484, guid: 255c0282a221c5d4a974b9dbd68e2622, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4258058818350484, guid: 255c0282a221c5d4a974b9dbd68e2622, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4258058818350484, guid: 255c0282a221c5d4a974b9dbd68e2622, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 255c0282a221c5d4a974b9dbd68e2622, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1771364356
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,8 +477,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952fe0438c7f758438713a167d908a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  density: 16
-  chunkSize: 32
+  density: 6
+  chunkSize: 64
+  gridSize: 12
   solarSystem: {fileID: 1905579141017554, guid: 255c0282a221c5d4a974b9dbd68e2622,
     type: 2}
   player: {fileID: 18222960}

@@ -7,6 +7,7 @@ public class UniverseGenerator : MonoBehaviour {
     int seed = _SEED.seed;
     public int density = 1;
     public int chunkSize = 16;
+    public int gridSize = 10;
     public GameObject solarSystem;
     public GameObject player;
 
@@ -29,11 +30,21 @@ public class UniverseGenerator : MonoBehaviour {
         Random.InitState(posx + posy + seed);
         for(int i = 0; i < density; i++)
         {
-            Vector3 instancePos = new Vector3(Random.Range((float)(posx - chunkSize / 2), (float)(posx + chunkSize / 2)), Random.Range((float)(posy - chunkSize / 2), (float)(posy + chunkSize / 2))); //somewhere within the chunk
-            GameObject instance = Instantiate(solarSystem, instancePos, Quaternion.identity) as GameObject;
-            instance.transform.parent = chunk.transform;
-            instance.name = (posx / chunkSize).ToString() + (posy / chunkSize).ToString() + i.ToString();
-            instance.GetComponent<SolarSystemGenerator>().seed = posx / chunkSize + posy / chunkSize + seed + i;
+            int planetx = Random.Range((posx - chunkSize / 2), (posx + chunkSize / 2)); planetx /= gridSize; planetx *= gridSize;
+            int planety = Random.Range((posy - chunkSize / 2), (posy + chunkSize / 2)); planety /= gridSize; planety *= gridSize;
+            if (Physics2D.OverlapCircleAll(new Vector2(planetx, planety), gridSize/2 - 2).Length < 1)
+            {
+                Vector3 instancePos = new Vector3(planetx, planety); //somewhere within the chunk
+                GameObject instance = Instantiate(solarSystem, instancePos, Quaternion.identity) as GameObject;
+                instance.transform.parent = chunk.transform;
+                instance.name = (posx / chunkSize).ToString() + (posy / chunkSize).ToString() + i.ToString();
+                instance.GetComponent<SolarSystemGenerator>().seed = posx / chunkSize + posy / chunkSize + seed + i;
+            }
+            else
+            {
+                Debug.Log("obj already exists at given point");
+            }
+            
         }
         
     }

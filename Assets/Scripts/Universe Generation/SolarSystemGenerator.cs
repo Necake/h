@@ -30,13 +30,12 @@ public class SolarSystemGenerator : MonoBehaviour {
 
                 currentPlanet.GetComponent<OrbitRotator>().rotCenter = sun.transform.position;
                 currentPlanet.GetComponent<OrbitRotator>().speed = Random.Range(-400, 400);
+                if(currentPlanet.GetComponent<OrbitRotator>().speed <= 150 && currentPlanet.GetComponent<OrbitRotator>().speed >= -150)
+                {
+                    currentPlanet.GetComponent<OrbitRotator>().speed = 150;
+                }
             }
             GetComponent<CircleCollider2D>().radius = initDistance / 5 + planetSize/2;
-        }
-        Debug.Log(Physics2D.OverlapCircleAll(gameObject.transform.position, GetComponent<CircleCollider2D>().radius).Length + "objects are in circle with" + gameObject);
-        if(Physics2D.OverlapCircleAll(gameObject.transform.position, GetComponent<CircleCollider2D>().radius).Length > 1)
-        {
-            Destroy(gameObject);
         }
     }
 }
